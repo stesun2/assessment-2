@@ -1,6 +1,4 @@
 # interface.py
-from modules.video import Video
-from modules.customer import Customer
 from modules.store import Store
 
 class Interface:
@@ -22,15 +20,24 @@ class Interface:
     def view_video_inventory(self):
         self.store.view_all_videos()
 
-    # 2. View customer's rented videos
+    # 2. View customer's rented videos by ID
     def view_customer_rented_videos(self):
         customer_id = input('Enter Customer ID:')
-        customer_str = str(self.customer.view_customer_rental_by_id(customer_id))
+        customer_str = str(self.store.view_customer_rental_by_id(customer_id))
         print(customer_str)
 
-    # 3. Rent vide
-    # 4. Return video\n
-    # 5. Add new custome
+    # 3. Renting a video out to a customer
+    # video by title
+    # customer by id
+    # IMPORTANT: Customers should not be allowed to have more than 3 videos rented at any given time. Your application should enforce this limitation!
+
+    def rent_video(self):
+        video_title = input('Enter movie you would like to rent:')
+        customer_id = input('Enter Customer ID:')
+        # video_title = str(self.store.rent_video_to_customer(video_title, customer_id))
+    # 4. Return video
+
+    # 5. Add new customer
 
     def run(self):
         while True:

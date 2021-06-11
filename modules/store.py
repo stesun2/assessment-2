@@ -7,28 +7,26 @@ import csv
 class Store:
 
     def __init__(self, name):
-        self.name     = name
+        self.name      = name
         self.videos    = Video.objects()
         self.customers = Customer.objects()
 
     def view_all_videos(self):
         print('\n')
-        print('ID\tTITLE')
+        print('ID\tTITLE\tRATING\tQTY')
         for i, video in enumerate(self.videos):
-            print(f'{i + 1}. {video.title}')
+            print(f'{i + 1}. {video.title} {video.rating} {video.copies_available}')
 
     # Viewing a customer's current rented videos customer by id
     def view_customer_rental_by_id(self, customer_id):
         for customer in self.customers:
             if customer.id == customer_id:
-                return customer.current_video_rentals
+                return "Current movies: " + customer.current_video_rentals
 
-        #  customer_id = input('Please enter Customer ID')
-        #  for i, customer in enumerate(self.customers):
-        #     if customer.id == customer_id:
-        #         return customer.current_video_rentals
-        #     else:
-        #         return None
+    def rent_video_to_customer(self, video_title, customer_id):
+        # check bot if movie title and customer id matches 
+        pass
+
 
     # def save(self):
     #     my_path = os.path.abspath(os.path.dirname(__file__))
