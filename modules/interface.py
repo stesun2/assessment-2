@@ -1,9 +1,12 @@
 # interface.py
+# from modules.video import Video
+# from modules.customer import Customer
+from modules.store import Store
 
-class interface:
+class Interface:
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, store_name):
+        self.store = Store(store_name)
 
     def menu(self):
         return ("\n"
@@ -13,14 +16,16 @@ class interface:
         "3. Rent video\n"
         "4. Return video\n"
         "5. Add new customer\n"
-        "6. Exit")
+        "6. Exit\n")
 
+    def view_video_inventory(self):
+        self.store.view_all_videos()
 
     def run(self):
         while True:
             mode = input(self.menu())
             if mode == '1':
-                self.view_all_videos()
+                self.view_video_inventory()
             elif mode == '2':   
                 self.view_customer_rented_videos()
             elif mode == '3':   
