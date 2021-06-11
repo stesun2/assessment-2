@@ -1,6 +1,6 @@
 # interface.py
-# from modules.video import Video
-# from modules.customer import Customer
+from modules.video import Video
+from modules.customer import Customer
 from modules.store import Store
 
 class Interface:
@@ -18,8 +18,19 @@ class Interface:
         "5. Add new customer\n"
         "6. Exit\n")
 
+    # 1. View video inventory
     def view_video_inventory(self):
         self.store.view_all_videos()
+
+    # 2. View customer's rented videos
+    def view_customer_rented_videos(self):
+        customer_id = input('Enter Customer ID:')
+        customer_str = str(self.customer.view_customer_rental_by_id(customer_id))
+        print(customer_str)
+
+    # 3. Rent vide
+    # 4. Return video\n
+    # 5. Add new custome
 
     def run(self):
         while True:

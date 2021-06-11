@@ -17,8 +17,8 @@ class Video:
         self.copies_available = copies_available
 
     # string method
-    def __str__(self):
-        return f'\n{self.title.upper()}\n---------------\nTitle: {self.title}\nID: {self.id}\n'
+    # def __str__(self):
+    #     return f'\n{self.title.upper()}\n---------------\nTitle: {self.title}\nID: {self.id}\n'
 
     # Reading from the inventory CSV file
     @classmethod
@@ -31,7 +31,7 @@ class Video:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 videos.append(Video(**dict(row)))
-
+        
         return videos
 
     
