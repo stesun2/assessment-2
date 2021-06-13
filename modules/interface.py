@@ -6,6 +6,7 @@ class Interface:
     def __init__(self, store_name):
         self.store = Store(store_name)
 
+    # Menu
     def menu(self):
         return ("\n"
         "Welcome to Code Platoon Video!\n"
@@ -34,10 +35,21 @@ class Interface:
     def rent_video(self):
         video_title = input('Enter movie you would like to rent:')
         customer_id = input('Enter Customer ID:')
-        # video_title = str(self.store.rent_video_to_customer(video_title, customer_id))
+        video_title = str(self.store.rent_video_to_customer(video_title, customer_id))
+        print(video_title)
+
     # 4. Return video
+    def return_video(self):
+        pass
 
     # 5. Add new customer
+    def add_customer(self):
+        customer_data = {}
+        customer_data['first_name'] = input('Enter your first name:\n')
+        customer_data['last_name'] = input('Enter your last name:\n')
+        customer_data['id'] = input('Enter a unique username id:\n')
+        customer_data['current_video_rentals'] = ''
+        self.store.add_new_customer(customer_data)
 
     def run(self):
         while True:
@@ -51,7 +63,7 @@ class Interface:
             elif mode == '4':   
                 self.return_video()
             elif mode == '5':   
-                self.add_new_customer()
+                self.add_customer()
             elif mode == '6':
                 break
             

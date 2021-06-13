@@ -16,10 +16,6 @@ class Video:
         self.rating           = rating
         self.copies_available = copies_available
 
-    # string method
-    # def __str__(self):
-    #     return f'\n{self.title.upper()}\n---------------\nTitle: {self.title}\nID: {self.id}\n'
-
     # Reading from the inventory CSV file
     @classmethod
     def objects(cls):

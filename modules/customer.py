@@ -16,7 +16,6 @@ class Customer:
         self.last_name             = last_name
         self.current_video_rentals = current_video_rentals
 
-
     # Reading from the inventory CSV file
     @classmethod
     def objects(cls):
@@ -30,6 +29,3 @@ class Customer:
                 customers.append(Customer(**dict(row)))
         
         return customers
-
-
-    
